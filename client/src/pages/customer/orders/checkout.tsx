@@ -5,9 +5,13 @@ import CartSummary from "@/components/cart/cart-summary";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { createOrder } from "@/http";
+import useTokenStore from "@/store";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutPage = () => {
   const { items } = useCart();
+  const token = useTokenStore((state) => state.token);
+  const navigate = useNavigate()
   const queryClient = useQueryClient();
 
   const totalAmount = items.reduce(
@@ -48,7 +52,7 @@ const CheckoutPage = () => {
         <CartSummary />
       </div>
 
-      <Button onClick={handleCheckout}>Place Order</Button>
+      {token ? <Button onClick={handleCheckout}>Place Order</Button>:<Button onClick={()=> navigate("/auth/signin")}>Please Sign in First</Button>}
     </div>
   );
 };
