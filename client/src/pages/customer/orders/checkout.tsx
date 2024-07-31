@@ -52,7 +52,7 @@ const CheckoutPage = () => {
         <CartSummary />
       </div>
 
-      {token ? <Button onClick={handleCheckout}>Place Order</Button>:<Button onClick={()=> navigate("/auth/signin")}>Please Sign in First</Button>}
+      {token ? <Button onClick={handleCheckout}>Place Order</Button>:<Button onClick={()=> navigate("/auth/signin")}>Please Sign in </Button>}
     </div>
   );
 };
