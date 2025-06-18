@@ -15,7 +15,7 @@ const feedbackRouter = require("./modules/feedback/feedback.routes");
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "http://localhost:5174" }));
 app.use(express.json());
 
 app.use("/products", productRouter);
